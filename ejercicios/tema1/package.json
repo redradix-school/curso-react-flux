@@ -5,9 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "./node_modules/.bin/webpack -p",
-    "build:min": "./node_modules/.bin/webpack -p",
-    "dev": "./node_modules/.bin/webpack -w -d"
+    "build": "NODE_ENV=production ./node_modules/.bin/webpack -p",
+    "dev": "NODE_ENV=development ./node_modules/.bin/webpack-dev-server -d --content-base ./dist --inline --hot"
   },
   "author": "",
   "license": "ISC",
@@ -20,6 +19,7 @@
     "babel-loader": "^6.1.0",
     "babel-preset-es2015": "^6.1.18",
     "babel-preset-react": "^6.1.18",
+    "react-hot-loader": "^1.3.0",
     "webpack": "^1.12.6",
     "webpack-dev-server": "^1.12.1"
   }
