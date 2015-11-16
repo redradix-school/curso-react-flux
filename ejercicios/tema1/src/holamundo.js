@@ -21,7 +21,7 @@ const HolaMundo = React.createClass({
   render(){
     return (
       <div>
-        <h1>Hola Mundo con contador carahuevo!</h1>
+        <h1>Hola Mundo con hot reloading</h1>
         <button style={buttonStyle} onClick={this.handleClick}>Click me</button>
         <p>{ this.state.clicks } clicks</p>
       </div>
