@@ -1,5 +1,6 @@
 import React from 'react';
 
+const RandomNumber = (props) => <li>{ props.number }</li>;
 
 const RandomList = React.createClass({
   generateRandomNumbers(){

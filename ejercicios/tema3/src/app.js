@@ -8,5 +8,5 @@ import RandomList from './components/random_list';
 import Ecommerce from './components/ecommerce';
 
 window.onload = function(){
-  ReactDOM.render(<Ecommerce />, document.getElementById('app'));
+  ReactDOM.render(<RandomList />, document.getElementById('app'));
 }
