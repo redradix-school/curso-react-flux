@@ -19,11 +19,12 @@ Este repositorio contiene las fuentes, ejercicios y soluciones del curso React +
 - Props y validación de props con PropTypes
 - Estado interno de un componente
 - Eventos
-- Nuestra primera aplicación interactiva - Cronómetro
+- Ejercicio - Contador
 
 ## 3. Composición frente a herencia
 - Componentes padre y componentes hijo
 - Comunicación hijo a padre
+- Nuestra primera app completa - Cronómetro
 - Visualizando listas
 - Formularios y controles de formulario
 - Crear un formulario de búsqueda - Base de datos de personajes
