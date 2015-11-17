@@ -7,6 +7,9 @@ const ResultsItem = React.createClass({
     seasons: React.PropTypes.arrayOf(React.PropTypes.number).isRequired,
     alive: React.PropTypes.bool.isRequired
   },
+  shouldComponentUpdate(){
+    return false;
+  },
   render(){
     return (
       <tr>
