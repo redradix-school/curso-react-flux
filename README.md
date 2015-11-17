@@ -37,12 +37,12 @@ Este repositorio contiene las fuentes, ejercicios y soluciones del curso React +
 
 ## 4. Flux
 - Qué es Flux
+- Acciones y creación de acciones
 - Dispatcher
 - Stores y la separación Command Query (Comando / Consulta)
 - Programando los Stores de nuestro ECommerce
-- Acciones y Creadores de Acciones
 - Uniendo todos los elementos
-- Terminando nuestro ECommerce Flux
+- Terminando nuestro Ecommerce con Flux
 
 ## 5. React en el mundo real
 - Rutas en el cliente con React Router
