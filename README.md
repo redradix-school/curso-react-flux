@@ -17,6 +17,7 @@ Este repositorio contiene las fuentes, ejercicios y soluciones del curso React +
 - Nuestro primer componente - Hola Mundo
 - Visualizar nuestra aplicación React en el browser
 - Props y validación de props con PropTypes
+- Visualizando listas
 - Estado interno de un componente
 - Eventos
 - Ejercicio - Contador
@@ -25,9 +26,8 @@ Este repositorio contiene las fuentes, ejercicios y soluciones del curso React +
 - Componentes padre y componentes hijo
 - Comunicación hijo a padre
 - Nuestra primera app completa - Cronómetro
-- Visualizando listas
 - Formularios y controles de formulario
-- Crear un formulario de búsqueda - Base de datos de personajes
+- Ejercicio - Base de datos de personajes
 - Ciclo de vida de un componente
 - Optimización de rendimiento
 - Mixins

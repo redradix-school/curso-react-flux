@@ -1,7 +1,7 @@
 'use strict';
 
 var React = require('react');
-var utils = require('../../lib/utils');
+var utils = require('../lib/utils');
 
 
 //Componente del encabezado
@@ -66,7 +66,7 @@ var Cronometro = React.createClass({
     var now = new Date().getTime();
     this.interval = setInterval(function(){
       this.setState({ ellapsedTime: +new Date()-now });
-    }.bind(this), 100);
+    }.bind(this), 50);
 
     this.setState({ isRunning: true });
   },
