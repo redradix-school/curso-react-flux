@@ -30,7 +30,8 @@ Este repositorio contiene las fuentes, ejercicios y soluciones del curso React +
 - Ejercicio - Base de datos de personajes
 - Ciclo de vida de un componente
 - Optimización de rendimiento
-- Mixins
+- Mixins y Componentes de Orden Superior
+- Componentes sin estado
 - Construyendo una aplicación real - Ecommerce
 
 

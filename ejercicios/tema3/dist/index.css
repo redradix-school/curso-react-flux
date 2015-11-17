@@ -240,11 +240,11 @@ input.big, textarea.big {
 .footer {
   clear: left;
 }
-.catalog-header , .cart-header, .checkout-header , .thank-you-header {
+.shop-header {
   border-bottom: 1px solid #f93;
   margin-bottom: 1em;
 }
-.catalog-header h2, .cart-header h2, .checkout-header h2, .thank-you-header h2 {
+.shop-header h2 {
   margin: 0;
 }
 .product {
