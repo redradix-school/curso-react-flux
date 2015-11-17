@@ -15,7 +15,9 @@ const Form = React.createClass({
     }
   },
   notifyChange(){
-    setTimeout(() => {
+    //we put a little timeout to allow user to type many keys before searching
+    clearTimeout(this._changeTimeout);
+    this._changeTimeout = setTimeout(() => {
       this.props.onQueryChange(this.state);
     }, 100);
   },

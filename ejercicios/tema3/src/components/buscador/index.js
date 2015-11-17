@@ -52,21 +52,21 @@ const Buscador = React.createClass({
   getInitialState(){
     return {
       results: characters,
+      familyNames: extractFamilyNames(characters),
+      allSeasons: extractAllSeasons(characters)
     }
   },
   handleQueryChange(query){
     this.setState({ results: search(query) });
   },
   render(){
-    const familyNames = extractFamilyNames(characters);
-    const allSeasons = extractAllSeasons(characters);
-
     return (
       <div className='search-engine'>
         <Title text="Buscador Juego de Tronos" />
-        <Form families={ familyNames }
-          onQueryChange={ this.handleQueryChange }
-          allSeasons={ allSeasons } />
+        <Form
+          families={ this.state.familyNames }
+          allSeasons={ this.state.allSeasons }
+          onQueryChange={ this.handleQueryChange } />
         <Results results={this.state.results} />
       </div>
     )
