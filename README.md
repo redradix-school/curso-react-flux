@@ -40,7 +40,7 @@ Este repositorio contiene las fuentes, ejercicios y soluciones del curso React +
 - Acciones y creación de acciones
 - Dispatcher
 - Stores y la separación Command Query (Comando / Consulta)
-- Programando los Stores de nuestro ECommerce
+- Programando los Stores de nuestro Ecommerce
 - Uniendo todos los elementos
 - Terminando nuestro Ecommerce con Flux
 
@@ -49,9 +49,10 @@ Este repositorio contiene las fuentes, ejercicios y soluciones del curso React +
 - Configuración de rutas y búsqueda de coincidencias
 - Transiciones y ciclo de vida por ruta
 - Integración React Router con Flux
-- Añadiendo rutas a nuestro ECommerce
+- Añadiendo rutas a nuestro Ecommerce
 - Comunicación con el servidor
 - Cargando datos externos de catálogo en nuestro Ecommerce
+- React en el servidor
 - Resumen de diferentes implementaciones de Flux
 - Una variación de Flux: Redux
 
