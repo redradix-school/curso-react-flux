@@ -78,8 +78,7 @@ const ExampleRouter = React.createClass({
           <Route path="about" component={About}>
             <Route path="history" component={ NestedAbout } />
           </Route>
-          <Route onEnter={ loadContactAsync }
-            path="contact/:id" component={Contact} />
+          <Route onEnter={ loadContactAsync } path="contact/:id" component={Contact} />
         </Route>
       </Router>
     )
