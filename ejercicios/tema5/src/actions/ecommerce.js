@@ -1,6 +1,7 @@
 import Dispatcher from '../app_dispatcher';
-
+import api from '../lib/api';
 import {
+  CATEGORIES_RECEIVE,
   CATALOG_RECEIVE,
   CART_ADD,
   CART_CHANGE_QTY,
@@ -8,6 +9,7 @@ import {
   PAGE_SET,
   ORDER_SAVE,
   ORDER_SET_ERRORS,
+  LOGIN
 } from '../action_types';
 
 /** Ecommerce Action Creators **/
@@ -43,6 +45,20 @@ export function setPage(page){
     type: PAGE_SET,
     page: page
   })
+}
+
+export function login(user, pwd, returnPath){
+  setTimeout(()=>{
+    Dispatcher.dispatch({
+      type: LOGIN,
+      returnPath,
+      user: {
+        email: user,
+        id: (Math.random()*500).toString(16),
+        loginTime: Date.now()
+      }
+    });
+  }, 1000);
 }
 
 // Saves user details for an order
@@ -85,7 +101,33 @@ export function validateOrder(order){
   }
 }
 
-export function receiveCatalogProducts(products){
+export function loadCategories(){
+  api.getCategories().then(categories => {
+    Dispatcher.dispatch({
+      type: CATEGORIES_RECEIVE,
+      categories
+    });
+  })
+  .catch(err => {
+    alert("Error al cargar categorías (dist/categories.json)")
+  });
+}
+
+export function loadProductsByCategory(categoryId){
+  api.getProducts(categoryId)
+  .then(products => {
+    Dispatcher.dispatch({
+      type: CATALOG_RECEIVE,
+      categoryId,
+      products
+    });
+  })
+  .catch(err => {
+    setPage('notfound');
+  });
+}
+
+export function receiveCatalogProducts(products, slug){
   Dispatcher.dispatch({
     type: CATALOG_RECEIVE,
     products: products

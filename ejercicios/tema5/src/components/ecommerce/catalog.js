@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './header';
 import CatalogItem from './catalog_item';
 import CatalogStore from '../../stores/catalog_store';
+import CategoryStore from '../../stores/category_store';
 import { connectToStores } from '../connect';
 
 const Catalog = React.createClass({
@@ -11,7 +12,8 @@ const Catalog = React.createClass({
     },
     getState(props){
       return {
-        products: CatalogStore.getProducts()
+        products: CatalogStore.getProducts(),
+        categoryId: CatalogStore.getCategoryId()
       }
     }
   },
@@ -28,11 +30,11 @@ const Catalog = React.createClass({
   },
 
   render(){
-    console.log(this.props);
+    const categoryName = CategoryStore.getCategoryNameById(this.props.categoryId);
     const items = this.props.products.map(item => <CatalogItem key={item.id} product={item} />);
     return (
       <div className='catalog'>
-        <Header text='Products' />
+        <Header text={ categoryName } />
         <div className='catalog-list'>
           { items.length ?  items : <p>Cargando...</p> }
         </div>

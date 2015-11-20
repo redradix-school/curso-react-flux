@@ -56,147 +56,6 @@ input.big, textarea.big {
   color: #f00;
 }
 
-/* Estilos para el ejercicio CRONOMETRO */
-
-.crono {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  max-width: 400px;
-  margin: 15% auto;
-  box-shadow: 0px 2px 3px 2px #ccc;
-}
-
-.crono .header {
-  border-bottom: 2px solid #bbb;
-  background: #e0e0e0;
-  text-align: center;
-}
-
-.crono .header h2 {
-  margin: 0;
-  padding: 4px 0;
-}
-
-.crono .timer {
-  background: #000;
-  color: #0f0;
-  font-size: 50px;
-  text-align: center;
-  font-family: Lucida, Console, monospace;
-}
-
-.crono .actions {
-  margin: 0;
-  padding: 20px;
-  text-align: center;
-  background: #eee;
-  border-top: 2px solid #fff;
-}
-
-.crono button {
-  padding: 4px 8px;
-  background: #f93;
-  color: #fff;
-  font-weight: bold;
-  font-size: 21px;
-  border: 2px solid #666;
-  border-radius: 5px;
-  cursor: pointer;
-  margin: 0 10px;
-}
-.crono button:hover {
-  color: #ff0;
-  background: #f00;
-}
-
-/* Estilos para el ejercicio buscador */
-.search-form form {
-  margin: 0;
-  padding: 0;
-}
-.search-form label {
-  margin-right: 2em;
-  text-align: left;
-  min-width: 40%;
-  display: inline-block;
-  vertical-align: middle;
-  text-align: right;
-  line-height: 36px;
-}
-.search-form input, .search-form textarea {
-  font-family: sans-serif;
-  font-size: 16px;
-  min-width: 40%;
-  padding: 4px;
-}
-.search-form select {
-  font-family: sans-serif;
-  font-size: 18px;
-  min-width: 40%;
-}
-.search-form fieldset {
-  border-radius: 5px;
-  border-color: #ccc;
-  border-style: solid;
-  margin-bottom: 10px;
-  text-align: right;
-}
-.search-engine {
-  border: 1px solid #000;
-  border-radius: 5px;
-  max-width: 800px;
-  margin: 5% auto;
-  box-shadow: 0px 2px 3px 2px #ccc;
-}
-.search-title {
-  padding: 4px 8px;
-}
-.search-title h1 {
-  margin: 0;
-  font-size: 24px;
-}
-.search-form {
-  padding: 4px 8px;
-  border-top: 2px solid #000;
-}
-.season-option {
-  display: inline-block;
-}
-.season-option label {
-  display: inline-block;
-}
-.search-results, .search-results-summary {
-  border-top: 1px solid #ccc;
-  clear: left;
-}
-.search-results table {
-  width: 100%;
-}
-.search-results table th {
-  padding: 4px;
-  text-align: left;
-  border-bottom: 1px dashed #ccc;
-}
-.search-results th.center, td.center {
-  text-align: center
-}
-.search-results tbody table tr {
-  background: #fff;
-}
-.search-results tbody tr:nth-child(even) {
-  background-color: #f0f0f0;
-}
-.search-results tbody tr:hover {
-  background-color: #def;
-}
-.search-results table td {
-  padding: 4px;
-}
-.search-results-summary {
-  text-align: center;
-  border-bottom:1px solid #ccc;
-}
-
 
 /* Estilos para ejercicio carrito de la compra */
 .shopping-cart {
@@ -231,6 +90,28 @@ input.big, textarea.big {
   /*display: none;*/
 }
 
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  height: 40px;
+}
+nav ul li {
+  float: left;
+  margin-right: 4px;
+  display: inline-block;
+}
+nav ul li.right {
+  float: right;
+}
+nav a {
+  color: #fff;
+  background: #630;
+  font-weight: bold;
+  padding: 8px;
+}
+
 .catalog, .cart, .checkout, .thank-you {
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -252,6 +133,12 @@ input.big, textarea.big {
 }
 h2.product-title {
   font-size: 16px;
+}
+h2.category-title {
+  font-size: 18px;
+}
+h2.category-title a{
+  color: #630;
 }
 .product-image {
 

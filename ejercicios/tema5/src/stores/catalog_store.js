@@ -2,12 +2,15 @@ import { Store } from 'flux/utils';
 import Dispatcher from '../app_dispatcher';
 import { CATALOG_RECEIVE } from '../action_types';
 
+//category name
+var __categoryId = -1;
 //keeps our catalog items
 var __products = [];
 //indicates if the catalog has products loaded
 var __isLoaded = false;
 
-function receiveProducts(products){
+function receiveProducts(products, categoryId){
+  __categoryId = categoryId;
   __products = products;
   __isLoaded = true;
 }
@@ -15,6 +18,10 @@ function receiveProducts(products){
 class CatalogStore extends Store {
   getProducts(){
     return __products;
+  }
+
+  getCategoryId(){
+    return __categoryId;
   }
 
   getProductById(id){
@@ -29,7 +36,7 @@ class CatalogStore extends Store {
   __onDispatch(action){
     switch(action.type){
       case CATALOG_RECEIVE:
-        receiveProducts(action.products);
+        receiveProducts(action.products, action.categoryId);
         this.__emitChange();
         break;
       default:

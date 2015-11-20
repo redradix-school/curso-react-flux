@@ -25,14 +25,14 @@ Este repositorio contiene las fuentes, ejercicios y soluciones del curso React +
 ## 3. Composición frente a herencia
 - Componentes padre y componentes hijo
 - Comunicación hijo a padre
-- Nuestra primera app completa - Cronómetro
+- Ejercicio - Nuestra primera app completa: Cronómetro
 - Formularios y controles de formulario
 - Ejercicio - Base de datos de personajes
 - Ciclo de vida de un componente
 - Optimización de rendimiento
 - Mixins y Componentes de Orden Superior
 - Componentes sin estado
-- Construyendo una aplicación real - Ecommerce
+- Ejercicio - Construyendo una aplicación real: Ecommerce
 
 
 ## 4. Flux
@@ -40,18 +40,19 @@ Este repositorio contiene las fuentes, ejercicios y soluciones del curso React +
 - Acciones y creación de acciones
 - Dispatcher
 - Stores y la separación Command Query (Comando / Consulta)
-- Programando los Stores de nuestro Ecommerce
+- Ejercicio - Programando los Stores de nuestro Ecommerce
 - Uniendo todos los elementos
-- Terminando nuestro Ecommerce con Flux
+- Ejercicio - Terminando nuestro Ecommerce con Flux
 
 ## 5. React en el mundo real
 - Rutas en el cliente con React Router
 - Configuración de rutas y búsqueda de coincidencias
 - Transiciones y ciclo de vida por ruta
 - Integración React Router con Flux
-- Añadiendo rutas a nuestro Ecommerce
+- Ejercicio - Añadir rutas a nuestro Ecommerce
 - Comunicación con el servidor
-- Cargando datos externos de catálogo en nuestro Ecommerce
+- Integración con APIs REST  
+- Ejercicio - Cargar nuestro catálogo desde el servidor
 - React en el servidor
 - Resumen de diferentes implementaciones de Flux
 - Una variación de Flux: Redux

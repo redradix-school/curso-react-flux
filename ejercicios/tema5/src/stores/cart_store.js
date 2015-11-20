@@ -29,7 +29,7 @@ function changeProductQuantity(productId, quantity){
       item.quantity = quantity;
     }
     return item;
-  });
+  }).filter(item => item.quantity > 0);
 }
 
 // Removes a product from the cart

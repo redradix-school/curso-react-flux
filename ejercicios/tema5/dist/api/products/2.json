@@ -1,0 +1,23 @@
+[
+  {
+    "id": 5,
+    "categoryId": 2,
+    "name": "iPad Pro",
+    "description": "Para pintar con el stylus",
+    "price": 999.99
+  },
+  {
+    "id": 6,
+    "categoryId": 2,
+    "name": "Micosoft Surface Pro",
+    "description": "A prueba de golpes, mordicos y babas",
+    "price": 899.99
+  },
+  {
+    "id": 7,
+    "categoryId": 2,
+    "name": "Woodyphone Tablet",
+    "description": "Tableta de madera, ideal para cortar queso y ver YouTube",
+    "price": 499.99
+  }
+]
