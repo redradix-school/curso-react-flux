@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "NODE_ENV=production webpack -p",
+    "build:dev": "NODE_ENV=development webpack -d -w",
     "dev": "NODE_ENV=development webpack-dev-server -d --content-base ./dist --inline --hot"
   },
   "author": "",

@@ -1,5 +1,7 @@
 //Server example universal rendering
-
+require('babel-core/register')({
+  only: /src/
+});
 var path = require('path'),
     express = require('express'),
     app = express();
@@ -7,20 +9,13 @@ var path = require('path'),
 var React = require('react'),
     ReactDOM = require('react-dom/server');
 var match = require('react-router').match,
-    RoutingContext = require('react-router').RoutingContext;
+    RoutingContext = React.createFactory(require('react-router').RoutingContext);
 
-var App = require('./src/universal_app'),
-    routes = App.Routes;
+var routes = require('./src/shop_routes');
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
-//log
-app.use('*', function(req, res, next){
-  console.log(req.method, req.url);
-  next();
-});
-//archivos estáticos
-app.use(express.static(path.join(__dirname, 'dist')));
+
 
 //router
 app.get('*', function(req, res, next){
@@ -28,9 +23,22 @@ app.get('*', function(req, res, next){
     if(err){
       res.status(500).send(error.message);
     }
-    console.log(err, redirectLocation, renderProps);
     if(renderProps){
-      res.status(200).send(ReactDOM.renderToString(<RoutingContext {...renderProps} />))
+      var reactHTML = ReactDOM.renderToString(RoutingContext(renderProps));
+      console.log('React server render');
+      var html = `
+        <html>
+          <head>
+            <title>Universal Shopping Cart</title>
+            <link rel="stylesheet" href="index.css" />
+          </head>
+          <body>
+            <div id="app">${reactHTML}</div>
+            <script src="bundle.js"></script>
+          </body>
+        </html>
+      `;
+      res.status(200).send(html);
     }
     else {
       next();
@@ -38,9 +46,12 @@ app.get('*', function(req, res, next){
   });
 });
 
+//archivos estáticos
+app.use(express.static(path.join(__dirname, 'dist')));
+
 app.use('*', function(req, res){
   res.status(404).end();
-})
+});
 
 app.listen(3000, 'localhost', function(err){
   if(err){

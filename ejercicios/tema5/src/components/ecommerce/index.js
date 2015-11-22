@@ -21,10 +21,14 @@ import { products as catalogProducts } from '../../data/shopping_cart';
 
 //route and history
 import { Router, Route } from 'react-router';
+import shopRoutes from '../../shop_routes';
 import history from '../../lib/history';
 
 
 const Shop = React.createClass({
+  componentDidMount(){
+
+  },
   onEnterHome(){
     loadCategories();
   },
@@ -44,19 +48,19 @@ const Shop = React.createClass({
   render(){
     return (
       <div className='shopping-cart'>
-        <Router history={ history }>
-          <Route path='/' component={ Home } onEnter={ this.onEnterHome }>
-            <Route path=':id/:slug' component={ Catalog } onEnter={ this.onEnterCatalog } />
-            <Route path='cart' component={ Cart } />
-            <Route path='checkout' component={ Checkout } onEnter={ this.checkUserLoggedIn } />
-            <Route path='thankyou' component={ ThankYou } />
-            <Route path='login' component={ Login } />
-            <Route path='*' component={ NotFound } />
-          </Route>
-        </Router>
+        <Router history={ history } routes={ shopRoutes } />
       </div>
     )
   }
 });
+
+// <Route path='/' component={ Home } onEnter={ this.onEnterHome }>
+          //   <Route path=':id/:slug' component={ Catalog } onEnter={ this.onEnterCatalog } />
+          //   <Route path='cart' component={ Cart } />
+          //   <Route path='checkout' component={ Checkout } onEnter={ this.checkUserLoggedIn } />
+          //   <Route path='thankyou' component={ ThankYou } />
+          //   <Route path='login' component={ Login } />
+          //   <Route path='*' component={ NotFound } />
+          // </Route>
 
 export default Shop;

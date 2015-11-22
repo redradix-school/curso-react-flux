@@ -22,5 +22,5 @@ import history from './lib/history';
 import UniversalApp from './universal_app';
 
 window.onload = function(){
-  ReactDOM.render(<UniversalApp history={ history }/>, document.getElementById('app'));
+  ReactDOM.render(<Ecommerce history={ history }/>, document.getElementById('app'));
 }

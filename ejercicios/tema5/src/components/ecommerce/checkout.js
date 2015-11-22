@@ -3,8 +3,7 @@ import Header from './header';
 import StoreMixin from '../store_mixin';
 import OrderStore from '../../stores/order_store';
 import { validateOrder, setPage } from '../../actions/ecommerce';
-//for navigating without Link elements
-import history from '../../lib/history';
+
 
 //stateless component - represents a form field row
 //expected props: label - text, error - null or errorMessage, children - form control(s)
@@ -47,7 +46,6 @@ const Checkout = React.createClass({
   handleGoBack(e){
     e.preventDefault();
     setPage('cart');
-    //history.push('/cart');
   },
   handleSubmit(e){
     e.preventDefault();
