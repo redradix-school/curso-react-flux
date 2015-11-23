@@ -1,19 +1,9 @@
 import React from 'react';
-
-import Home from './home';
-import Catalog from './catalog';
-import Cart from './cart';
-import Checkout from './checkout';
-import ThankYou from './thankyou';
-import Login from './login';
-import NotFound from './notfound';
-
-import LogStore from '../../stores/log_store';
-import CatalogStore from '../../stores/catalog_store';
-import CartStore from '../../stores/cart_store';
-import OrderStore from '../../stores/order_store';
-import RouteStore from '../../stores/route_store';
-import SessionStore from '../../stores/session_store';
+import CategoryStore from '../../stores/category_store';
+// import CartStore from '../../stores/cart_store';
+// import OrderStore from '../../stores/order_store';
+// import RouteStore from '../../stores/route_store';
+// import SessionStore from '../../stores/session_store';
 
 //action creators
 import { receiveCatalogProducts, loadCategories, loadProductsByCategory } from '../../actions/ecommerce';
@@ -27,30 +17,17 @@ import history from '../../lib/history';
 
 const Shop = React.createClass({
   componentDidMount(){
-
-  },
-  onEnterHome(){
-    loadCategories();
+    if(!CategoryStore.isReady()){
+      loadCategories();
+    }
   },
   onEnterCatalog(nextState){
     loadProductsByCategory(parseInt(nextState.params.id));
   },
-  checkUserLoggedIn(nextState, replaceState){
-    if(CartStore.getCartItems().length === 0){
-      console.log('No products in cart');
-      return replaceState(null, '/');
-    }
-    if(!SessionStore.isUserLoggedIn()){
-      console.log('User not logged in!');
-      return replaceState(null, '/login', { returnPath: nextState.location.pathname });
-    }
-  },
   render(){
     return (
-      <div className='shopping-cart'>
-        <Router history={ history } routes={ shopRoutes } />
-      </div>
-    )
+      <Router history={ history } routes={ shopRoutes } />
+    );
   }
 });
 

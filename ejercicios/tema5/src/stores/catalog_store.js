@@ -1,6 +1,6 @@
 import { Store } from 'flux/utils';
 import Dispatcher from '../app_dispatcher';
-import { CATALOG_RECEIVE } from '../action_types';
+import { CATALOG_RECEIVE, STORE_INIT } from '../action_types';
 
 //category name
 var __categoryId = -1;
@@ -39,6 +39,11 @@ class CatalogStore extends Store {
         receiveProducts(action.products, action.categoryId);
         this.__emitChange();
         break;
+
+      case STORE_INIT:
+        receiveProducts(action.initialState.products || [], action.initialState.categoryId || -1);
+        break;
+
       default:
         return;
     }

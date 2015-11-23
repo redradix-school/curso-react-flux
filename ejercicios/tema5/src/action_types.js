@@ -13,6 +13,8 @@ export const PAGE_SET = 'PAGE:SET';
 
 export const LOGIN = 'LOGIN';
 
+export const STORE_INIT = '@@STORE:INIT';
+
 export default {
   CART_ADD,
   CART_CHANGE_QTY,

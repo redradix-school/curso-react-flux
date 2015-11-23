@@ -6,48 +6,48 @@ var path = require('path'),
     express = require('express'),
     app = express();
 
-var React = require('react'),
-    ReactDOM = require('react-dom/server');
-var match = require('react-router').match,
-    RoutingContext = React.createFactory(require('react-router').RoutingContext);
+var renderUI = require('./server_render').renderUI;
 
-var routes = require('./src/shop_routes');
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-
+var categories = require('./dist/api/categories');
 //router
-app.get('*', function(req, res, next){
-  match({ routes, location: req.url }, function(err, redirectLocation, renderProps){
-    if(err){
-      res.status(500).send(error.message);
-    }
-    if(renderProps){
-      var reactHTML = ReactDOM.renderToString(RoutingContext(renderProps));
-      console.log('React server render');
-      var html = `
-        <html>
-          <head>
-            <title>Universal Shopping Cart</title>
-            <link rel="stylesheet" href="index.css" />
-          </head>
-          <body>
-            <div id="app">${reactHTML}</div>
-            <script src="bundle.js"></script>
-          </body>
-        </html>
-      `;
-      res.status(200).send(html);
-    }
-    else {
-      next();
-    }
-  });
+app.get('/', function(req, res, next){
+  var initialState = {
+    categories: require('./dist/api/categories.json')
+  };
+  renderUI(req, res, next, initialState);
+});
+
+app.get('/c/:id/:slug', function(req, res, next){
+  var initialState = {
+    categories: categories,
+    categoryId: parseInt(req.params.id),
+    products: require('./dist/api/products/' + parseInt(req.params.id))
+  }
+  renderUI(req, res, next, initialState);
+});
+
+app.get('/cart', function(req, res, next){
+  var initialState = {
+    categories: categories
+  }
+  renderUI(req, res, next, initialState);
+});
+
+app.get('/checkout', function(req, res, next){
+  var initialState = {
+    categories: categories
+  }
+  renderUI(req, res, next, initialState);
 });
 
 //archivos estáticos
 app.use(express.static(path.join(__dirname, 'dist')));
+
+
 
 app.use('*', function(req, res){
   res.status(404).end();

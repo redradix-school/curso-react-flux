@@ -3,6 +3,7 @@ import Header from './header';
 import CatalogItem from './catalog_item';
 import CatalogStore from '../../stores/catalog_store';
 import CategoryStore from '../../stores/category_store';
+import { loadProductsByCategory } from '../../actions/ecommerce';
 import { connectToStores } from '../connect';
 
 const Catalog = React.createClass({
@@ -25,7 +26,13 @@ const Catalog = React.createClass({
   },
   getDefaultProps(){
     return {
-      products: []
+      products: [],
+      categoryId: -1
+    }
+  },
+  componentWillReceiveProps(nextProps) {
+    if(parseInt(nextProps.params.id) !== CatalogStore.getCategoryId()){
+      loadProductsByCategory(parseInt(nextProps.params.id));
     }
   },
 

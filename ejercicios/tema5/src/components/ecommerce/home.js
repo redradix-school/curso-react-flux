@@ -14,7 +14,7 @@ const Menu = React.createClass({
   render(){
     const links = this.props.categories.map(c => (
       <li key={ c.id }>
-        <Link to={ c.id + "/" + c.slug }>{ c.name }</Link>
+        <Link to={ "/c/" +  c.id + "/" + c.slug }>{ c.name }</Link>
       </li>)
     );
 
@@ -37,7 +37,7 @@ const CategoryItem = function(props){
   return (
     <div className="row">
       <div className="col one-whole">
-        <h2 className="category-title"><Link to={ cat.id + "/" + cat.slug}>{cat.name}</Link></h2>
+        <h2 className="category-title"><Link to={ "/c/" + cat.id + "/" + cat.slug}>{cat.name}</Link></h2>
         <p>{ cat.description }</p>
       </div>
     </div>
@@ -65,13 +65,15 @@ const Home = React.createClass({
   },
   render(){
     return (
-      <div className="catalog">
-        <div className="shop-header">
-          <h1>Flux Shop</h1>
-        </div>
-        <Menu categories={ this.props.categories } />
+      <div className='shopping-cart'>
+        <div className="catalog">
+          <div className="shop-header">
+            <h1>Flux Shop</h1>
+          </div>
+          <Menu categories={ this.props.categories } />
 
-        { this.props.children || this.renderCategories() }
+          { this.props.children || this.renderCategories() }
+        </div>
       </div>
     );
   }

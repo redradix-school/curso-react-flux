@@ -13,11 +13,11 @@ const API = {
   },
 
   getCategories(){
-    return this.getJSON('api/categories.json');
+    return this.getJSON('/api/categories.json');
   },
 
   getProducts(categoryId){
-    return this.getJSON('api/products/' + categoryId + '.json');
+    return this.getJSON('/api/products/' + categoryId + '.json');
   }
 };
 

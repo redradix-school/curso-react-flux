@@ -10,14 +10,32 @@ import NotFound from './components/ecommerce/notfound';
 
 import { Route, IndexRoute } from 'react-router';
 
-const ShopRoutes = (
-  <Route path='/' >
-    <IndexRoute component={ Catalog } />
-    <Route path='cart' component={ Cart } />
-    <Route path='checkout' component={ Checkout } />
-    <Route path='thankyou' component={ ThankYou } />
-    <Route path='*' component={ NotFound } />
-  </Route>
-);
+// const ShopRoutes = (
+//   <Route path='/'component={ Home } >
+//     <Route path='c/:id/:slug' component={ Catalog } />
+//     <Route path='cart' component={ Cart } />
+//     <Route path='checkout' component={ Checkout } />
+//     <Route path='thankyou' component={ ThankYou } />
+//     <Route path='*' component={ NotFound } />
+//   </Route>
+// );
+
+const ShopRoutes = [
+  {
+    path: '/',
+    component: Home,
+    onEnter: ()=> console.log('onEnter Home'),
+    childRoutes: [
+      { path: 'c/:id/:slug',
+        component: Catalog,
+        onEnter: (nextState)=> nextState.params.id = parseInt(nextState.params.id)
+      },
+      { path: 'cart', component: Cart },
+      { path: 'checkout', component: Checkout },
+      { path: 'thankyou', component: ThankYou },
+      { path: '*', component: NotFound },
+    ]
+  }
+];
 
 export default ShopRoutes;

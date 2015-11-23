@@ -3,6 +3,7 @@ import Header from './header';
 import StoreMixin from '../store_mixin';
 import OrderStore from '../../stores/order_store';
 import { validateOrder, setPage } from '../../actions/ecommerce';
+import { Lifecycle } from 'react-router';
 
 
 //stateless component - represents a form field row
@@ -20,7 +21,7 @@ const FormItem = (props) => (
 );
 
 const Checkout = React.createClass({
-  mixins: [StoreMixin([OrderStore])],
+  mixins: [StoreMixin([OrderStore]), Lifecycle],
   getState(){
     return {
       errors: OrderStore.getOrderErrors()
@@ -41,6 +42,17 @@ const Checkout = React.createClass({
       let newState = {};
       newState[name] = e.target.value;
       this.setState(newState);
+    }
+  },
+  routerWillLeave(){
+    var formChanged = Object.keys(this.state).reduce((acc, k) => {
+      if(this.state[k] !== ''){
+        acc = true;
+      }
+      return acc;
+    }, false);
+    if(formChanged){
+      return "¿Seguro que desea cancelar su compra?"
     }
   },
   handleGoBack(e){

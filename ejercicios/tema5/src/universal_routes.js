@@ -35,7 +35,6 @@ export const Routes = [
   {
     path: '/',
     component: Layout,
-    onEnter: enterHook,
     indexRoute: { component: Home },
     childRoutes: [
       { path: 'page', component: Page }
