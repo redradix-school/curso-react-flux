@@ -1,26 +1,47 @@
-{
-  "name": "tema1",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "NODE_ENV=production ./node_modules/.bin/webpack -p",
-    "dev": "NODE_ENV=development ./node_modules/.bin/webpack-dev-server -d --content-base ./dist --inline --hot"
+var path = require('path'),
+    webpack = require('webpack');
+
+var outPath = path.join(__dirname, 'dist');
+var IS_DEV = (process.env.NODE_ENV === 'development');
+console.log('Webpack config. Environment: ', (IS_DEV ? 'dev' : 'production'));
+
+var devConfig = {
+  entry: [
+    './src/app.js'
+  ],
+  output: {
+    path: outPath,
+    filename: 'bundle.js'
   },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "react": "^0.14.2",
-    "react-dom": "^0.14.2"
+  module: {
+    loaders: [
+      {
+        test: /\.js*/,
+        include: path.join(__dirname, 'src'),
+        loaders: ['react-hot', 'babel']
+      }
+    ]
+  }
+};
+
+var prodConfig = {
+  entry: [
+    './src/app.js'
+  ],
+  output: {
+    path: outPath,
+    filename: 'bundle.js'
   },
-  "devDependencies": {
-    "babel-core": "^6.1.21",
-    "babel-loader": "^6.1.0",
-    "babel-preset-es2015": "^6.1.18",
-    "babel-preset-react": "^6.1.18",
-    "react-hot-loader": "^1.3.0",
-    "webpack": "^1.12.6",
-    "webpack-dev-server": "^1.12.1"
+  module: {
+    loaders: [
+      {
+        test: /\.js*/,
+        include: path.join(__dirname, 'src'),
+        //REMOVE react-hot for production build
+        loaders: ['babel']
+      }
+    ]
   }
 }
+
+module.exports = IS_DEV ? devConfig : prodConfig;
