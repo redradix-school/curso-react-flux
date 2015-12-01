@@ -1,0 +1,213 @@
+body {
+  font-family: sans-serif;
+  font-size: 16px;
+}
+
+/* Comunes */
+.row {
+  clear: both;
+  margin: 1em 0;
+  padding: 4px 8px;
+  overflow: hidden;
+}
+.col {
+  float: left;
+}
+.col.one-whole {
+  width: 100%;
+}
+.col.three-fourths {
+  width: 75%;
+}
+.col.two-thirds {
+  width: 66.7%;
+}
+.col.one-half {
+  width: 50%;
+}
+.col.one-third {
+  width: 33.3%;
+}
+.col.one-fourth {
+  width: 25%;
+}
+
+input, select, textarea {
+  font-family: sans-serif;
+  font-size: 16px;
+  padding: 4px;
+  resize: none;
+}
+
+input:focus, textarea:focus {
+  background: #f0f0f0;
+}
+
+input.error, select.error, textarea.error {
+  border-color: #f00;
+}
+
+input.big, textarea.big {
+  min-width: 400px;
+}
+.error-text {
+  display: block;
+  padding: 0 4px;
+  color: #f00;
+}
+
+
+/* Estilos para ejercicio carrito de la compra */
+.shopping-cart {
+  width: 972px;
+  margin: 0 auto;
+}
+
+.shopping-cart .button {
+  display: inline-block;
+  color: #fff;
+  font-size: 16px;
+  background: #876;
+  border: none;
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 1em;
+}
+
+.shopping-cart .button:hover {
+  display: inline-block;
+  color: #fff;
+  font-size: 16px;
+  background: #987;
+  border: none;
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.catalog , .cart {
+  /*display: none;*/
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  height: 40px;
+}
+nav ul li {
+  float: left;
+  margin-right: 4px;
+  display: inline-block;
+}
+nav ul li.right {
+  float: right;
+}
+nav a {
+  color: #fff;
+  background: #630;
+  font-weight: bold;
+  padding: 8px;
+}
+
+.catalog, .cart, .checkout, .thank-you {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 2em;
+}
+.footer {
+  clear: left;
+}
+.shop-header {
+  border-bottom: 1px solid #f93;
+  margin-bottom: 1em;
+}
+.shop-header h2 {
+  margin: 0;
+}
+.product {
+
+}
+h2.product-title {
+  font-size: 16px;
+}
+h2.category-title {
+  font-size: 18px;
+}
+h2.category-title a{
+  color: #630;
+}
+.product-image {
+
+}
+.product-summary {
+  vertical-align: top
+}
+.product-add-to-cart {
+  text-align: right;
+  padding-top: 20px;
+}
+.product-add-to-cart .product-price {
+  font-size: 16px;
+  color: #000;
+  font-weight: bold;
+  margin: 0 0 1em 0;
+}
+.product-add-to-cart .button {
+  display: inline-block;
+  color: #fff;
+  font-size: 16px;
+  background: #f93;
+  border: none;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.cart {
+
+}
+
+.cart table {
+  width: 100%;
+}
+.cart th.qty, .cart td.qty {
+  width: 60px;
+  text-align: center
+}
+th.description, td.description {
+  max-width: 40%;
+  text-align: left;
+}
+td.description h3 {
+  font-size: 16px;
+}
+th.unit-price, td.unit-price , td.subtotal, th.subtotal{
+  text-align: right;
+  min-width: 100px;
+}
+td.actions, th.actions {
+  min-width: 200px;
+  text-align: right;
+}
+td.actions .button, td.actions .button:hover {
+  font-size: 12px;
+  padding: 4px;
+}
+tr.summary td {
+  border-top: 1px solid #999;
+  padding: 8px 0;
+}
+td.total {
+  text-align: right;
+  font-weight: bold;
+}
+
+td.cart-empty {
+  padding: 20px;
+}
+.checkout {
+
+}

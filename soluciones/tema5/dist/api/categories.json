@@ -1,0 +1,15 @@
+[
+  {
+    "id": 1,
+    "slug": "phones",
+    "name": "Phones",
+    "description": "Teléfonos de todos los colores"
+  },
+  {
+    "id": 2,
+    "slug": "tablets",
+    "name": "Tablets",
+    "description": "Compra las últimas novedades en tabletas"
+  }
+
+]
