@@ -3,7 +3,7 @@ import React from 'react';
 const buttonStyle = {
   fontFamily: 'Geneva, sans-serif',
   padding: '10px 8px',
-  background: 'green',
+  background: '#39f',
   color: '#fff',
   fontWeight: 'bold',
   fontSize: '13px'

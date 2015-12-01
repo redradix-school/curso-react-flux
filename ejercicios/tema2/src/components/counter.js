@@ -11,19 +11,14 @@ const buttonStyle = {
 
 const Counter = React.createClass({
   getInitialState(){
-    return {
-      clicks: 0
-    }
-  },
-  handleClick(e){
-    this.setState({ clicks: this.state.clicks+1 });
+    //TODO
   },
   render(){
     return (
       <div>
         <h1>Contador</h1>
-        <button style={ buttonStyle } onClick={ this.handleClick }>Haz click aquí</button>
-        <p>Has hecho click { this.state.clicks } veces</p>
+        <button style={ buttonStyle }>Haz click aquí</button>
+        <p>Has hecho click X veces</p>
       </div>
     )
   }
