@@ -12,12 +12,7 @@ const ResultsItem = React.createClass({
   },
   render(){
     return (
-      <tr>
-        <td>{ this.props.name }</td>
-        <td>{ this.props.actor }</td>
-        <td className="center">{ this.props.seasons.join(', ') }</td>
-        <td className="center">{ this.props.alive ? "Sí" : "No" }</td>
-      </tr>
+      /* TODO */
     )
   }
 });

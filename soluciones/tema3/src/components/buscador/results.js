@@ -5,21 +5,8 @@ const Results = React.createClass({
   propTypes: {
     results: React.PropTypes.array
   },
-  getDefaultProps() {
-    return {
-      results: [{
-        name: 'Charlie',
-        family: 'de la Orden',
-        actor: 'Foobar',
-        seasons: [1,2,3],
-        alive: true
-      }]
-    };
-  },
   render(){
-    const items = this.props.results.map(r => {
-      return <ResultsItem key={r.name} {...r} />
-    });
+    const items = null; /* TODO */
 
     return (
       <div className="search-results">
@@ -38,7 +25,7 @@ const Results = React.createClass({
         </table>
         <div className="search-results-summary">
           <div className="row">
-            Encontrados <span className="search-results-total">{ this.props.results.length }</span> personajes
+            Encontrados <span className="search-results-total">{ /* TODO */ }</span> personajes
           </div>
         </div>
     </div>

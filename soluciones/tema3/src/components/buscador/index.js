@@ -64,10 +64,10 @@ const Buscador = React.createClass({
       <div className='search-engine'>
         <Title text="Buscador Juego de Tronos" />
         <Form
-          families={ this.state.familyNames }
-          allSeasons={ this.state.allSeasons }
-          onQueryChange={ this.handleQueryChange } />
-        <Results results={this.state.results} />
+          families={ /* TODO */ }
+          allSeasons={ /* TODO */ }
+          onQueryChange={ /* TODO */ } />
+        <Results results={ /* TODO */ } />
       </div>
     )
   }
