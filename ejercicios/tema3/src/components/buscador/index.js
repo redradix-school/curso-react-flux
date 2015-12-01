@@ -4,6 +4,7 @@ import Form from './form';
 import Results from './results';
 import { characters } from '../../data/got';
 
+//Extract different family names from Array of { character }
 function extractFamilyNames(people){
   return people.reduce((acc, p) => {
     if(acc.indexOf(p.family) === -1)
@@ -12,6 +13,7 @@ function extractFamilyNames(people){
   }, []).sort();
 }
 
+//Extract all different season numbers from Array of { character }
 function extractAllSeasons(people){
   return people.reduce((acc, p) => {
     p.seasons.forEach(s => {
@@ -23,6 +25,7 @@ function extractAllSeasons(people){
   }, []).sort();
 }
 
+//Returns true if a given character appears in ALL seasons
 function appearsInSeasons(character, seasons){
   return seasons.reduce((acc,s) => {
     if(character.seasons.indexOf(s) === -1){
@@ -32,6 +35,8 @@ function appearsInSeasons(character, seasons){
   }, true);
 }
 
+// Filters the list of characters to include only
+// those matching the query
 function search(query){
   const nameRegEx = new RegExp(query.name, 'i');
   return characters.filter(c => {
@@ -48,6 +53,7 @@ function search(query){
   });
 }
 
+// Game of Thrones search engine app
 const Buscador = React.createClass({
   getInitialState(){
     return {
@@ -64,10 +70,10 @@ const Buscador = React.createClass({
       <div className='search-engine'>
         <Title text="Buscador Juego de Tronos" />
         <Form
-          families={ this.state.familyNames }
-          allSeasons={ this.state.allSeasons }
-          onQueryChange={ this.handleQueryChange } />
-        <Results results={this.state.results} />
+          families={ /* TODO */ }
+          allSeasons={ /* TODO */ }
+          onQueryChange={ /* TODO */ } />
+        <Results results={ /* TODO */ } />
       </div>
     )
   }

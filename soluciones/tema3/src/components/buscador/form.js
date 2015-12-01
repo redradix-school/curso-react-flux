@@ -15,21 +15,23 @@ const Form = React.createClass({
     }
   },
   notifyChange(){
-    //we put a little timeout to allow user to type more than one key before searching
-    //yes, it's _.debounce
+    //we put a little timeout to allow user to type many keys before searching
     clearTimeout(this._changeTimeout);
     this._changeTimeout = setTimeout(() => {
       this.props.onQueryChange(this.state);
     }, 100);
   },
   handleNameChange(e){
-    /* TODO */
+    this.setState({ name: e.target.value });
+    this.notifyChange();
   },
   handleFamilyChange(e){
-    /* TODO */
+    this.setState({ family: e.target.value });
+    this.notifyChange();
   },
   handleAliveChange(e){
-    /* TODO */
+    this.setState({ aliveOnly: e.target.checked });
+    this.notifyChange();
   },
   handleSeasonChange(e){
     const season = parseInt(e.target.value);
@@ -57,8 +59,8 @@ const Form = React.createClass({
     });
   },
   render(){
-    const familyOptions = null /* TODO */;
-    const seasons = null /* TODO */;
+    const familyOptions = this.props.families.map(f => <option key={f} value={f}>{f}</option>);
+    const seasons = this.renderSeasons();
     return (
       <div className="search-form">
       <form>

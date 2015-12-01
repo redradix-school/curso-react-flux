@@ -22,15 +22,15 @@ const Form = React.createClass({
     }, 100);
   },
   handleNameChange(e){
-    this.setState({ name: e.target.value });
+    /* TODO */
     this.notifyChange();
   },
   handleFamilyChange(e){
-    this.setState({ family: e.target.value });
+    /* TODO */
     this.notifyChange();
   },
   handleAliveChange(e){
-    this.setState({ aliveOnly: e.target.checked });
+    /* TODO */
     this.notifyChange();
   },
   handleSeasonChange(e){
@@ -39,10 +39,10 @@ const Form = React.createClass({
     let currentSeasons = this.state.seasons;
 
     if(checked){
-      this.setState({ seasons: currentSeasons.concat(season) });
+      /* TODO */
     }
     else {
-      this.setState({ seasons: currentSeasons.filter(s => s !== season )});
+      /* TODO */
     }
 
     this.notifyChange();
@@ -59,19 +59,19 @@ const Form = React.createClass({
     });
   },
   render(){
-    const familyOptions = this.props.families.map(f => <option key={f} value={f}>{f}</option>);
-    const seasons = this.renderSeasons();
+    const familyOptions = /* TODO */;
+    const seasons = /* TODO */;
     return (
       <div className="search-form">
       <form>
         <div className="row">
           <div className="col one-half">
             <label htmlFor="character">Actor / personaje</label>
-            <input type="text" name="character" value={ this.state.name } onChange={ this.handleNameChange } />
+            <input type="text" name="character" value={ /* TODO */ } onChange={ /* TODO */ } />
           </div>
           <div className="col one-half">
             <label htmlFor="family">Familia</label>
-            <select name="family" value={this.state.family} onChange={ this.handleFamilyChange }>
+            <select name="family" value={ /* TODO */ } onChange={ /* TODO */ }>
               <option value="">Todas</option>
               { familyOptions }
             </select>
@@ -80,7 +80,7 @@ const Form = React.createClass({
         <div className="row">
           <div className="col one-half">
             <label htmlFor="alive">Sólo personajes vivos</label>
-            <input type="checkbox" name="alive" checked={ this.state.aliveOnly } onChange={ this.handleAliveChange } />
+            <input type="checkbox" name="alive" checked={ /* TODO */ } onChange={ /* TODO */ } />
           </div>
           <div className="col one-half">
             <fieldset>
