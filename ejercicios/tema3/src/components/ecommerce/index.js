@@ -9,33 +9,35 @@ import NotFound from './notfound';
 const Shop = React.createClass({
   getInitialState(){
     return {
+      //página actual, usaremos
+      //"catalog", "cart", "checkout", "thankyou"
       page: 'catalog',
+      //productos del catálogo
       products: catalogProducts,
+      //productos en el carrito (con cantidad de cada uno)
       cart: [],
+      //datos personales del pedido
       orderDetails: {},
+      //errores en los datos del pedido
       orderErrors: {}
     }
   },
 
   navigate(newPage){
-    this.setState({ page: newPage });
+    //TODO: cambiar la página actual
   },
 
   handleAddToCart({product}){
-    let cartItems = this.state.cart;
-    //is the same product already in cart?
-    let existingProduct = cartItems.filter(i => i.id === product.id)[0] || null;
+    var cartItems = this.state.cart;
+    //TODO: Comprobar si el producto ya está
+    var existingProduct = null;
     if(existingProduct){
-      cartItems = cartItems.map(item => {
-        if(item.id === product.id) {
-          item.qty++;
-        }
-        return item;
-      });
-      this.setState({ cart: cartItems });
+      //aumentamos la cantidad de ese producto
+      this.handleQuantityChange({ product, qty: existingProduct.qty+1});
     }
     else {
-      let newItem = {
+      //lo añadimos al carrito, copiamos propiedades y añadimos QTY
+      var newItem = {
         id: product.id,
         name: product.name,
         description: product.description,
@@ -44,51 +46,26 @@ const Shop = React.createClass({
       };
       this.setState({ cart: cartItems.concat(newItem )});
     }
+    //mostramos la página del carrito
     this.navigate('cart');
   },
 
   handleQuantityChange({ product, qty }){
-    let cartItems = this.state.cart.map(item => {
-      if(item.id === product.id){
-        item.qty = qty;
-      }
-      return item;
-    });
-    //filter out items with 0 qty
-    let remainingItems = cartItems.filter(p => p.qty > 0);
-    this.setState({
-      cart: remainingItems
-    });
+    //TODO: cambiar la cantidad de un item en el carrito
+    //TODO: filter out items with 0 qty
+    //TODO: guardar en state
   },
 
   handleCheckout({ order }){
-    let errors = {};
-    if(order.firstName.trim() === ''){
-      errors.firstName = 'El nombre es obligatorio';
-    }
-    if(order.lastName.trim() === ''){
-      errors.lastName = 'El apellido es obligatorio';
-    }
-    if(order.email.trim() === ''){
-      errors.email = 'Debe introducir un email';
-    }
-    if(order.address.trim() === ''){
-      errors.address = 'Debe introducir una dirección de entrega';
-    }
+    var errors = {};
+    /** TODO - validacion */
     if(Object.keys(errors).length === 0){
       //everything ok! empty cart and navigate to thankyou page
-      this.setState({
-        cart: [],
-        orderDetails: order,
-        orderErrors: {},
-        page: 'thankyou'
-      });
+      //TODO
     }
     else {
       //stay on the same page, display errors
-      this.setState({
-        orderErrors: errors
-      });
+      //TODO
     }
   },
 
@@ -99,26 +76,19 @@ const Shop = React.createClass({
         items={ this.state.products }
         onNavigate={ this.navigate }
         onAddToCart={ this.handleAddToCart } />
+
+    //TODO: resto pantallas
     case 'cart':
-      return <Cart
-        items={ this.state.cart }
-        onNavigate={ this.navigate }
-        onCartQuantityChange={ this.handleQuantityChange } />;
+      break;
+
     case 'checkout':
-      return (
-        <Checkout
-          errors={ this.state.orderErrors }
-          onProcessOrder={ this.handleCheckout }
-          onBackToCart={ () => this.navigate('cart')} />
-      )
+      break;
+
     case 'thankyou':
-      return (
-        <ThankYou
-          orderDetails={ this.state.orderDetails }
-          onBackToShopping={ () => this.navigate('catalog') } />
-      )
+      break;
+
     default:
-      return <NotFound onBackToCatalog={ () => this.navigate('catalog')} />
+      return <NotFound onBackToCatalog={ () => this.navigate('catalog') } />
     }
   },
 

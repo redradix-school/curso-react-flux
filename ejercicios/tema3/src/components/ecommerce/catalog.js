@@ -9,10 +9,12 @@ const Catalog = React.createClass({
     onAddToCart: React.PropTypes.func.isRequired
   },
   render(){
-    const items = this.props.items.map(item => <CatalogItem key={item.id} product={item} onAddToCart={this.props.onAddToCart} />);
+    //TODO: mapear "items" del catálogo a componentes CatalogItem
+    const items = [];
+
     return (
       <div className='catalog'>
-        <Header text='Products' />
+        <Header text='Productos' />
         <div className='catalog-list'>
           { items }
         </div>

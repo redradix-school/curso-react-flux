@@ -19,18 +19,10 @@ const CartItem = React.createClass({
     });
   },
   handleIncQty(e){
-    e.preventDefault();
-    this.props.onQuantityChange({
-      product: this.props.product,
-      qty: this.props.product.qty+1
-    });
+    //TODO
   },
   handleDecQty(e){
-    e.preventDefault();
-    this.props.onQuantityChange({
-      product: this.props.product,
-      qty: this.props.product.qty-1
-    });
+    //TODO
   },
   render(){
     const product = this.props.product;

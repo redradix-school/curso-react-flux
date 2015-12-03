@@ -10,22 +10,18 @@ const Cart = React.createClass({
   },
   calculateTotal(){
     return this.props.items.reduce((acc, item) => {
-      return acc + (item.qty * item.price);
+      //TODO
     }, 0).toFixed(2);
   },
   handleBack(e){
-    e.preventDefault();
-    this.props.onNavigate('catalog');
+    //TODO - navegar de vuelta al catalogo
   },
   handleCheckout(e){
-    e.preventDefault();
-    this.props.onNavigate('checkout');
+    //TODO - navegar a checkout
   },
   render(){
-    const cartItems = this.props.items.map(item =>
-      <CartItem
-        key={item.id} product={item}
-        onQuantityChange={ this.props.onCartQuantityChange } />);
+    //TODO: crear componentes CartItem
+    const cartItems = [];
 
     return (
       <div className='cart'>
@@ -54,7 +50,7 @@ const Cart = React.createClass({
         </div>
         <div className="footer">
           <a className="button" onClick={ this.handleBack }>Seguir comprando</a>
-          { cartItems.length === 0 ? null : <a className="button" onClick={ this.handleCheckout }>Finalizar compra</a> }
+          <a className="button" onClick={ this.handleCheckout }>Finalizar compra</a>
         </div>
       </div>
     )

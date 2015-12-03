@@ -32,7 +32,7 @@ const Checkout = React.createClass({
   handleFieldChange(name){
     return (e) => {
       e.preventDefault();
-      let newState = {};
+      var newState = {};
       newState[name] = e.target.value;
       this.setState(newState);
     }
@@ -44,6 +44,8 @@ const Checkout = React.createClass({
   handleSubmit(e){
     e.preventDefault();
     this.props.onProcessOrder({
+      //igual que $.extend o _.extend
+      //creamos un nuevo objeto a partir de this.state
       order: Object.assign({}, this.state)
     });
   },
@@ -52,7 +54,7 @@ const Checkout = React.createClass({
 
     return (
       <div className='checkout'>
-        <Header text='Checkout' />
+        <Header text='Completar pedido' />
         <div className='checkout-form'>
           <form>
           <FormItem label='Nombre' error={ errors.firstName }>
@@ -62,24 +64,8 @@ const Checkout = React.createClass({
               onChange={this.handleFieldChange('firstName')} />
           </FormItem>
 
-          <FormItem label='Apellido' error={ errors.lastName }>
-              <input type="text" name="lastName"
-                className={ errors.firstName ? 'error' : ''}
-                value={ this.state.lastName }
-                onChange={this.handleFieldChange('lastName')} />
-          </FormItem>
-          <FormItem label='Email' error={ errors.email }>
-              <input type="text" name="email"
-                className={ errors.firstName ? 'error' : ''}
-                value={ this.state.email }
-                onChange={this.handleFieldChange('email')} />
-          </FormItem>
-          <FormItem label='Dirección' error={ errors.address }>
-              <textarea
-                className={ errors.firstName ? 'error big' : 'big'}
-                value={ this.state.address }
-                onChange={this.handleFieldChange('address')} />
-          </FormItem>
+          { /* TODO: resto de controles */ }
+
           <div className="row">
             <div className="col one-whole">
               <button className="button" onClick={ this.handleGoBack }>Volver al carrito</button>
