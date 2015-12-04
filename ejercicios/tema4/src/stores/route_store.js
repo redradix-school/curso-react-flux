@@ -15,36 +15,7 @@ function changePage(newPage){
 
 
 class RouteStore extends Store {
-  getCurrentPage(){
-    return __page;
-  }
-
-  __onDispatch(action){
-    var dispatcher = this.getDispatcher();
-
-    switch(action.type){
-      case PAGE_SET:
-        changePage(action.page);
-        this.__emitChange();
-        break;
-
-      case CART_ADD:
-        //wait until CartStore has added the product
-        dispatcher.waitFor([cartStoreToken]);
-        changePage('cart');
-        this.__emitChange();
-        break;
-
-      case ORDER_SAVE:
-        dispatcher.waitFor([orderStoreToken]);
-        changePage('thankyou');
-        this.__emitChange();
-        break;
-
-      default:
-        return;
-    }
-  }
+  //TODO
 }
 
 export default new RouteStore(Dispatcher);

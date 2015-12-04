@@ -12,10 +12,10 @@ import {
 /** Ecommerce Action Creators **/
 
 //  Adds a product to the cart
-export function addToCart(productId){
+export function addToCart(product){
   Dispatcher.dispatch({
     type: CART_ADD,
-    productId
+    product
   })
 }
 

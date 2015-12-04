@@ -16,5 +16,5 @@ import OrderStore from './stores/order_store';
 
 
 window.onload = function(){
-  ReactDOM.render(<CounterHOC />, document.getElementById('app'));
+  ReactDOM.render(<Ecommerce />, document.getElementById('app'));
 }
