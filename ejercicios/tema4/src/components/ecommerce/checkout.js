@@ -1,8 +1,5 @@
 import React, { PropTypes } from 'react';
 import Header from './header';
-import StoreMixin from '../store_mixin';
-import OrderStore from '../../stores/order_store';
-import { validateOrder, setPage } from '../../actions/ecommerce';
 
 //stateless component - represents a form field row
 //expected props: label - text, error - null or errorMessage, children - form control(s)
@@ -19,12 +16,6 @@ const FormItem = (props) => (
 );
 
 const Checkout = React.createClass({
-  mixins: [StoreMixin([OrderStore])],
-  getState(){
-    return {
-      errors: OrderStore.getOrderErrors()
-    }
-  },
   getInitialState(){
     return {
       firstName: '',

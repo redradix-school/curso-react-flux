@@ -24,7 +24,7 @@ const Shop = React.createClass({
     //load products in catalog, simulate async delay
     setTimeout(() => {
       receiveCatalogProducts(catalogProducts);
-    }, 150);
+    }, 300);
   },
   componentWillUnmount(){
     //TODO

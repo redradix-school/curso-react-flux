@@ -1,6 +1,4 @@
 import React, { PropTypes } from 'react';
-import { addToCart } from '../../actions/ecommerce';
-import { connectToStores } from '../connect';
 
 const CatalogItem = React.createClass({
   propTypes: {
@@ -12,7 +10,7 @@ const CatalogItem = React.createClass({
   },
   handleAddToCart(e){
     e.preventDefault();
-    addToCart(this.props.product.id);
+    //TODO
   },
   render(){
     const p = this.props.product;

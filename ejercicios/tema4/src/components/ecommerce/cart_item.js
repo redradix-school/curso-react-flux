@@ -1,9 +1,6 @@
 import React, { PropTypes } from 'react';
-//import { ReactComponentWithPureRenderMixin } from 'react/addons';
-import { removeFromCart, changeQty } from '../../actions/ecommerce';
 
 const CartItem = React.createClass({
-  //mixins: [ReactComponentWithPureRenderMixin],
   propTypes: {
     product: PropTypes.shape({
       id: PropTypes.number.isRequired,
@@ -15,15 +12,15 @@ const CartItem = React.createClass({
   },
   handleRemove(e){
     e.preventDefault();
-    removeFromCart(this.props.product.id);
+    //TODO
   },
   handleIncQty(e){
     e.preventDefault();
-    changeQty(this.props.product.id, this.props.product.quantity+1);
+    //TODO
   },
   handleDecQty(e){
     e.preventDefault();
-    changeQty(this.props.product.id, this.props.product.quantity-1);
+    //TODO
   },
   render(){
     const product = this.props.product;

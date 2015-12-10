@@ -4,7 +4,7 @@ import CatalogItem from './catalog_item';
 import CatalogStore from '../../stores/catalog_store';
 import { connectToStores } from '../connect';
 
-const Catalog = React.createClass({
+export const Catalog = React.createClass({
   statics: {
     getStores(){
       return [CatalogStore];

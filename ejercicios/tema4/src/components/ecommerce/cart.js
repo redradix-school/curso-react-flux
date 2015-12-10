@@ -2,19 +2,14 @@ import React, { PropTypes } from 'react';
 import Header from './header';
 import CartItem from './cart_item';
 
-import CartStore from '../../stores/cart_store';
-import { connectToStores } from '../connect';
-import { changeQty, removeFromCart, setPage } from '../../actions/ecommerce';
 
 const Cart = React.createClass({
-  statics: {
-    getStores(){
-      return [CartStore];
-    },
-    getState(){
-      return {
-        items: CartStore.getCartItems()
-      }
+  propTypes: {
+    items: React.PropTypes.array.isRequired
+  },
+  getDefaultProps(){
+    return {
+      items: []
     }
   },
   calculateTotal(){
@@ -24,11 +19,11 @@ const Cart = React.createClass({
   },
   handleBack(e){
     e.preventDefault();
-    setPage('catalog');
+    //TODO
   },
   handleCheckout(e){
     e.preventDefault();
-    setPage('checkout');
+    //TODO
   },
   render(){
     const cartItems = this.props.items.map(item =>
@@ -68,5 +63,4 @@ const Cart = React.createClass({
   },
 });
 
-const connectedCart = connectToStores(Cart);
-export default connectedCart;
+export default Cart;

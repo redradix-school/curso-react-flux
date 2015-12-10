@@ -1,7 +1,5 @@
 import React, { PropTypes } from 'react';
 import Header from './header';
-import OrderStore from '../../stores/order_store';
-import { setPage } from '../../actions/ecommerce';
 
 const ThankYou = React.createClass({
   handleBackClick(e){
@@ -9,7 +7,7 @@ const ThankYou = React.createClass({
     setPage('catalog');
   },
   render(){
-    const orderDetails = OrderStore.getDetails();
+    //TODO: get order details from Stores
 
     return (
       <div className="thank-you">
