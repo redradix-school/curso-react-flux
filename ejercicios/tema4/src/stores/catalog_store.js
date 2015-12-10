@@ -13,7 +13,8 @@ class CatalogStore extends Store {
   }
 
   getProductById(id){
-    return __products.find(p = p.id === id);
+    //TODO
+    return null;
   }
 
 

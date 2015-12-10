@@ -11,10 +11,13 @@ import CatalogStore from '../../stores/catalog_store';
 import CartStore from '../../stores/cart_store';
 import OrderStore from '../../stores/order_store';
 import RouteStore from '../../stores/route_store';
+//Conectar
+import { connectToStores } from '../connect';
 
 //action creators
 import { receiveCatalogProducts } from '../../actions/ecommerce';
 import { products as catalogProducts } from '../../data/shopping_cart';
+
 
 const Shop = React.createClass({
   componentDidMount(){
