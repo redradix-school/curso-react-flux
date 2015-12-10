@@ -6,7 +6,7 @@ import Checkout from './checkout';
 import ThankYou from './thankyou';
 import NotFound from './notfound';
 
-import LogStore from '../../stores/log_store';
+//import LogStore from '../../stores/log_store';
 import CatalogStore from '../../stores/catalog_store';
 import CartStore from '../../stores/cart_store';
 import OrderStore from '../../stores/order_store';
@@ -22,20 +22,16 @@ const Shop = React.createClass({
     setTimeout(() => {
       receiveCatalogProducts(catalogProducts);
     }, 150);
-
-    this.__subscription = RouteStore.addListener(() => {
-      this.setState(this.getState())
-    });
   },
   componentWillUnmount(){
-    this.__subscription.remove();
+    //TODO
   },
   getInitialState(){
     return this.getState();
   },
   getState(){
     return {
-      page: RouteStore.getCurrentPage()
+      page: 'catalog'
     }
   },
   getComponentForPage(page){

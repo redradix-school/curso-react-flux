@@ -12,10 +12,17 @@ class CatalogStore extends Store {
     return __products;
   }
 
+  getProductById(id){
+    return __products.find(p = p.id === id);
+  }
+
 
   __onDispatch(action){
     switch(action.type){
-      //TODO
+      case CATALOG_RECEIVE:
+       __products = action.products;
+       this.__emitChange();
+
       default:
         return;
     }
