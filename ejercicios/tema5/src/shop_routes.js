@@ -24,7 +24,6 @@ const ShopRoutes = [
   {
     path: '/',
     component: Home,
-    onEnter: ()=> console.log('onEnter Home'),
     childRoutes: [
       { path: 'c/:id/:slug',
         component: Catalog,

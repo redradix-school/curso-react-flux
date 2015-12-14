@@ -34,7 +34,6 @@ window.onload = function(){
     var dataScript = document.getElementById('__initialState');
     if(dataScript)
       dataScript.parentNode.removeChild(dataScript);
-
   }
   ReactDOM.render(<Ecommerce history={ history }/>, document.getElementById('app'));
 }
