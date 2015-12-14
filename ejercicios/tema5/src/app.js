@@ -23,17 +23,17 @@ import Ecommerce from './components/ecommerce';
 
 //universal app
 //import history from './lib/history';
-//import UniversalApp from './universal_app';
+import UniversalApp from './universal_app';
 
 window.onload = function(){
-  let initialState = window.__initialState;
-  if(typeof(initialState) !== 'undefined'){
-    initialState = (typeof(initialState) === 'string') ? JSON.parse(initialState) : initialState;
-    Dispatcher.dispatch({ type: STORE_INIT, initialState });
-    //delete script tag
-    var dataScript = document.getElementById('__initialState');
-    if(dataScript)
-      dataScript.parentNode.removeChild(dataScript);
-  }
-  ReactDOM.render(<Ecommerce history={ history }/>, document.getElementById('app'));
+  // let initialState = window.__initialState;
+  // if(typeof(initialState) !== 'undefined'){
+  //   initialState = (typeof(initialState) === 'string') ? JSON.parse(initialState) : initialState;
+  //   Dispatcher.dispatch({ type: STORE_INIT, initialState });
+  //   //delete script tag
+  //   var dataScript = document.getElementById('__initialState');
+  //   if(dataScript)
+  //     dataScript.parentNode.removeChild(dataScript);
+  // }
+  ReactDOM.render(<UniversalApp history={ history }/>, document.getElementById('app'));
 }
