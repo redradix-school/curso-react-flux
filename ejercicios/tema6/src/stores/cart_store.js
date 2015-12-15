@@ -44,7 +44,6 @@ export class CartStore extends Store {
   }
 
   __onDispatch(action){
-
     switch(action.type){
       case CART_ADD:
         addProductToCart(action.product);
