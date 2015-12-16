@@ -2,7 +2,7 @@ import jsdom from '../helpers/jsdom';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Dispatcher } from 'flux';
-import { Cart } from '../../components/ecommerce/cart';
+import { Cart }  from '../../components/ecommerce/cart';
 import CartItem from '../../components/ecommerce/cart_item';
 import should from 'should';
 import TestUtils from 'react-addons-test-utils';
@@ -39,7 +39,7 @@ describe('Cart component', () => {
 
   it('Should call onGoBack to go back to shopping', () => {
     var footer = TestUtils.findRenderedDOMComponentWithClass(comp, 'footer');
-    //console.log(footer);
+
     var backButton = footer.children[0],
         checkoutButton = footer.children[1];
 
