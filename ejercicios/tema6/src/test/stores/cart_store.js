@@ -13,10 +13,6 @@ describe('Cart Store', function(){
 
   });
 
-  // after(function(){
-  //   dispatcher.unregister(store.getDispatchToken());
-  // });
-
   it('Should return cart items', function(){
     store.getCartItems.should.be.a.Function;
   });

@@ -1,6 +1,7 @@
 //Ecommerce action types
 
 export const CATALOG_RECEIVE = 'CATALOG:RECEIVE';
+export const CATEGORIES_RECEIVE = 'CATEGORIES:RECEIVE';
 
 export const CART_ADD = 'CART:ADD';
 export const CART_CHANGE_QTY = 'CART:CHANGE:QTY';
@@ -20,5 +21,6 @@ export default {
   ORDER_SAVE,
   ORDER_SET_ERRORS,
   PAGE_SET,
-  CATALOG_RECEIVE
+  CATALOG_RECEIVE,
+  CATEGORIES_RECEIVE
 }

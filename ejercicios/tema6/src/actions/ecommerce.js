@@ -1,5 +1,7 @@
 import Dispatcher from '../app_dispatcher';
+import api from '../lib/api';
 import {
+  CATEGORIES_RECEIVE,
   CATALOG_RECEIVE,
   CART_ADD,
   CART_CHANGE_QTY,
@@ -89,6 +91,51 @@ export function receiveCatalogProducts(products){
     type: CATALOG_RECEIVE,
     products: products
   })
+}
+
+export function loadCategories(){
+  api.getCategories().then(categories => {
+    Dispatcher.dispatch({
+      type: CATEGORIES_RECEIVE,
+      categories
+    });
+  })
+  .catch(err => {
+    //alert("Error al cargar categorías (dist/categories.json)")
+    Dispatcher.dispatch({
+      type: 'ERROR',
+      err
+    })
+  });
+}
+
+export function loadProductsByCategory(categoryId){
+  api.getProducts(categoryId)
+  .then(products => {
+    Dispatcher.dispatch({
+      type: CATALOG_RECEIVE,
+      categoryId,
+      products
+    });
+  })
+  .catch(err => {
+    Dispatcher.dispatch({
+      type: 'ERROR',
+      err
+    })
+  });
+}
+
+export default {
+  addToCart,
+  changeQty,
+  removeFromCart,
+  saveOrder,
+  setPage,
+  receiveCatalogProducts,
+  loadCategories,
+  loadProductsByCategory,
+  validateOrder
 }
 
 

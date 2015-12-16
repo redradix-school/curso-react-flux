@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha --recursive --require ./src/test/helpers/babel ./src/test/stores",
-    "tdd": "mocha -w --recursive --require ./src/test/helpers/babel ./src/test/",
+    "tdd": "mocha -w --recursive --require ./src/test/helpers/babel ./src/test",
     "build": "NODE_ENV=production ./node_modules/.bin/webpack -p",
     "dev": "NODE_ENV=development webpack-dev-server -d --content-base ./dist --inline --hot"
   },
@@ -18,7 +18,8 @@
     "react-dom": "^0.14.2",
     "rewire": "^2.5.1",
     "should": "^8.0.1",
-    "sinon": "^1.17.2"
+    "sinon": "^1.17.2",
+    "superagent": "^1.6.1"
   },
   "devDependencies": {
     "babel-core": "^6.1.21",
