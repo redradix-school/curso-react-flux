@@ -4,7 +4,7 @@ import sinon from 'sinon';
 import should from 'should';
 import ActionTypes from '../action_types';
 
-describe.only('Action creators', () =>{
+describe('Action creators', () =>{
   var dispatcher, actionSpy, token;
   var mockApi = {
     getProducts(){},
